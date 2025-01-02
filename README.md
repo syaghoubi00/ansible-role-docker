@@ -9,6 +9,7 @@ None.
 ## Role Variables
 
 `docker_user: docker` - The name of the user that will be created for rootless docker
+
 `docker_rootless_mode: false` - Whether to install docker in rootless mode
 
 ## Dependencies
