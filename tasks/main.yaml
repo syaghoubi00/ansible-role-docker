@@ -19,5 +19,5 @@
   ansible.builtin.include_tasks: common.rootful.yaml
 
 - name: Make Docker rootless
-  ansible.builtin.import_tasks: "{{ ansible_distribution }}.rootless.yaml"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.rootless.yaml"
   when: docker_rootless_mode | bool
