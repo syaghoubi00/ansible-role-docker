@@ -15,3 +15,8 @@
     user: "{{ docker_user }}"
     shell: /bin/bash
     state: present
+
+- name: Add ssh authorized key to Docker user
+  ansible.posix.authorized_key:
+    user: "{{ docker_user }}"
+    key: "{{ docker_ssh_public_key }}"
