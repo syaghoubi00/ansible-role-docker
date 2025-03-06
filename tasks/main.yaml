@@ -18,6 +18,10 @@
 - name: Install rootful Docker
   ansible.builtin.include_tasks: common.rootful.yaml
 
+- name: Prep system for rootless Docker
+  ansible.builtin.include_tasks: "common.rootless.yaml"
+  when: docker_rootless_mode | bool
+
 - name: Make Docker rootless
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.rootless.yaml"
   when: docker_rootless_mode | bool

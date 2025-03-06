@@ -11,24 +11,6 @@
       - polkitd # Needed for non-interactive machinectl auth
     state: present
 
-- name: Disable system-wide Docker daemon
-  ansible.builtin.systemd:
-    service: docker.service
-    state: stopped
-    enabled: false
-
-- name: Remove system-wide Docker socket
-  ansible.builtin.file:
-    state: absent
-    path: /var/run/docker.sock
-
-# NOTE: Added to the 'users' group by default - create seperate group?
-- name: Add Docker user
-  ansible.builtin.user:
-    user: "{{ docker_user }}"
-    shell: /bin/bash
-    state: present
-
 # TODO: Make idempotent - systemd linger file?
 - name: Enable lingering
   # ansible.builtin.command:
