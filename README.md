@@ -12,6 +12,8 @@ None.
 
 `docker_rootless_mode: false` - Whether to install docker in rootless mode
 
+`docker_ssh_public_key:` - The public key to add to the authorized_keys file of the docker user
+
 ## Dependencies
 
 None.
